@@ -82,7 +82,7 @@ fetch(projectsURL)
     .then(response => response.json())
     .then(مشاريع => {
         hideLoading(projectsContainer);
-        projects.forEach((project, index) => {
+        مشاريع.forEach((project, index) => {
             const card = displayProject(project, index);
             projectsContainer.appendChild(card);
             addFadeInEffect(card, index);

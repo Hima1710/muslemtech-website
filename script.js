@@ -31,7 +31,7 @@ function displaySection(section, index) {
 }
 
 // دالة لعرض المشاريع
-function displayProject(project, index) {
+function displayProject(مشاريع, index) {
     const card = document.createElement("div");
     card.className = "project-card";
     card.style.opacity = "0";
@@ -80,7 +80,7 @@ showLoading(projectsContainer);
 
 fetch(projectsURL)
     .then(response => response.json())
-    .then(projects => {
+    .then(مشاريع => {
         hideLoading(projectsContainer);
         projects.forEach((project, index) => {
             const card = displayProject(project, index);

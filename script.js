@@ -31,16 +31,16 @@ function displaySection(section, index) {
 }
 
 // دالة لعرض المشاريع
-function displayProject(مشاريع, index) {
+function displayProject(project, index) {
     const card = document.createElement("div");
     card.className = "project-card";
     card.style.opacity = "0";
     card.style.transform = "translateY(20px)";
     card.innerHTML = `
-        <img src="${project["صورة المشروع"]}" alt="${project["اسم المشروع"]}" loading="lazy">
-        <h3>${project["اسم المشروع"]}</h3>
-        <p>${project["وصف المشروع"]}</p>
-        <a href="${project["رابط المشروع"]}" target="_blank">رؤية المشروع</a>
+        <img src="${مشاريع["صورة المشروع"]}" alt="${مشاريع["اسم المشروع"]}" loading="lazy">
+        <h3>${مشاريع["اسم المشروع"]}</h3>
+        <p>${مشاريع["وصف المشروع"]}</p>
+        <a href="${مشاريع["رابط المشروع"]}" target="_blank">رؤية المشروع</a>
     `;
     return card;
 }
@@ -80,9 +80,9 @@ showLoading(projectsContainer);
 
 fetch(projectsURL)
     .then(response => response.json())
-    .then(مشاريع => {
+    .then(project => {
         hideLoading(projectsContainer);
-        مشاريع.forEach((project, index) => {
+        project.forEach((project, index) => {
             const card = displayProject(project, index);
             projectsContainer.appendChild(card);
             addFadeInEffect(card, index);
